@@ -22,12 +22,6 @@
       margin-bottom: 20px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
-    .section h2 {
-      font-size: 16px;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e8ecf4;
-    }
     .checkbox-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -36,15 +30,13 @@
     .checkbox-grid label {
       display: flex; align-items: center; gap: 8px; padding: 8px 12px;
       background: #f8f9fc; border-radius: 6px; cursor: pointer; font-size: 14px;
+      border-left: 3px solid #4A6CF7;
     }
     .checkbox-grid label:hover { background: #eef1f8; }
     .checkbox-grid input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
-    .group-a label { border-left: 3px solid #4A6CF7; }
-    .group-b label { border-left: 3px solid #6c7a9a; }
-    .group-c label { border-left: 3px solid #2ecc71; }
     .info-box {
       background: #fff8e1; border-left: 4px solid #ffc107; padding: 12px 16px;
-      border-radius: 0 8px 8px 0; margin-top: 20px; font-size: 13px; line-height: 1.6;
+      border-radius: 0 8px 8px 0; font-size: 13px; line-height: 1.6;
     }
     .info-box strong { color: #e67e22; }
   </style>
@@ -55,38 +47,19 @@
     <p class="subtitle">Test the extension's batch check, uncheck, and invert features</p>
 
     <div class="section">
-      <h2>Group A: Normal Checkboxes</h2>
-      <div class="checkbox-grid group-a">
-        <label><input type="checkbox" checked> Item A1</label>
-        <label><input type="checkbox"> Item A2</label>
-        <label><input type="checkbox"> Item A3</label>
-        <label><input type="checkbox"> Item A4</label>
-        <label><input type="checkbox"> Item A5</label>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Group B: More Checkboxes (test count)</h2>
-      <div class="checkbox-grid group-b">
-        <label><input type="checkbox"> Item B1</label>
-        <label><input type="checkbox"> Item B2</label>
-        <label><input type="checkbox"> Item B3</label>
-        <label><input type="checkbox"> Item B4</label>
-        <label><input type="checkbox"> Item B5</label>
-        <label><input type="checkbox"> Item B6</label>
-        <label><input type="checkbox"> Item B7</label>
-        <label><input type="checkbox"> Item B8</label>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Group C: Mixed State (test skip-first)</h2>
-      <div class="checkbox-grid group-c">
-        <label><input type="checkbox" checked> Checked C1</label>
-        <label><input type="checkbox"> Unchecked C2</label>
-        <label><input type="checkbox" checked> Checked C3</label>
-        <label><input type="checkbox"> Unchecked C4</label>
-        <label><input type="checkbox"> Unchecked C5</label>
+      <div class="checkbox-grid">
+        <label><input type="checkbox" checked> Item 1</label>
+        <label><input type="checkbox"> Item 2</label>
+        <label><input type="checkbox"> Item 3</label>
+        <label><input type="checkbox"> Item 4</label>
+        <label><input type="checkbox" checked> Item 5</label>
+        <label><input type="checkbox"> Item 6</label>
+        <label><input type="checkbox"> Item 7</label>
+        <label><input type="checkbox" checked> Item 8</label>
+        <label><input type="checkbox"> Item 9</label>
+        <label><input type="checkbox"> Item 10</label>
+        <label><input type="checkbox"> Item 11</label>
+        <label><input type="checkbox"> Item 12</label>
       </div>
     </div>
 
