@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复选框测试页面</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f7fb;
+      padding: 40px 20px;
+      color: #1a1a2e;
+    }
+    .container { max-width: 700px; margin: 0 auto; }
+    h1 { text-align: center; margin-bottom: 8px; color: #4A6CF7; }
+    .subtitle { text-align: center; color: #888; font-size: 14px; margin-bottom: 30px; }
+
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .section h2 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e8ecf4;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 10px;
+    }
+    .checkbox-grid label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: #f8f9fc;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .checkbox-grid label:hover { background: #eef1f8; }
+    .checkbox-grid input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+
+    .group-a label { border-left: 3px solid #4A6CF7; }
+    .group-b label { border-left: 3px solid #6c7a9a; }
+    .group-c label { border-left: 3px solid #2ecc71; }
+
+    .mixed-controls { display: flex; flex-direction: column; gap: 12px; }
+    .mixed-controls label {
+      display: flex; align-items: center; gap: 10px; font-size: 14px;
+    }
+    .mixed-controls input[type="checkbox"],
+    .mixed-controls input[type="radio"] { width: 16px; height: 16px; cursor: pointer; }
+    .mixed-controls select, .mixed-controls input[type="text"] {
+      padding: 6px 10px; border: 1px solid #d0d5e0; border-radius: 6px; font-size: 13px;
+    }
+
+    .info-box {
+      background: #fff8e1;
+      border-left: 4px solid #ffc107;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 20px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .info-box strong { color: #e67e22; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>复选框测试页面</h1>
+    <p class="subtitle">用于测试扩展的批量勾选、取消、反选功能</p>
+
+    <!-- 分组 A：普通复选框 -->
+    <div class="section">
+      <h2>分组 A：普通复选框</h2>
+      <div class="checkbox-grid group-a">
+        <label><input type="checkbox" checked> 选项 A1</label>
+        <label><input type="checkbox"> 选项 A2</label>
+        <label><input type="checkbox"> 选项 A3</label>
+        <label><input type="checkbox"> 选项 A4</label>
+        <label><input type="checkbox"> 选项 A5</label>
+      </div>
+    </div>
+
+    <!-- 分组 B：更多复选框（测试数量选择） -->
+    <div class="section">
+      <h2>分组 B：更多复选框（测试数量设置）</h2>
+      <div class="checkbox-grid group-b">
+        <label><input type="checkbox"> 选项 B1</label>
+        <label><input type="checkbox"> 选项 B2</label>
+        <label><input type="checkbox"> 选项 B3</label>
+        <label><input type="checkbox"> 选项 B4</label>
+        <label><input type="checkbox"> 选项 B5</label>
+        <label><input type="checkbox"> 选项 B6</label>
+        <label><input type="checkbox"> 选项 B7</label>
+        <label><input type="checkbox"> 选项 B8</label>
+      </div>
+    </div>
+
+    <!-- 分组 C：已预设勾选状态 -->
+    <div class="section">
+      <h2>分组 C：混合状态（测试跳过首个）</h2>
+      <div class="checkbox-grid group-c">
+        <label><input type="checkbox" checked> 已选中 C1</label>
+        <label><input type="checkbox"> 未选中 C2</label>
+        <label><input type="checkbox" checked> 已选中 C3</label>
+        <label><input type="checkbox"> 未选中 C4</label>
+        <label><input type="checkbox"> 未选中 C5</label>
+      </div>
+    </div>
+
+    <!-- 混合控件 -->
+    <div class="section">
+      <h2>混合控件（仅复选框受扩展影响）</h2>
+      <div class="mixed-controls">
+        <label><input type="checkbox"> 我是复选框</label>
+        <label><input type="radio" name="demo-radio"> 我是单选钮（不受影响）</label>
+        <label><input type="radio" name="demo-radio"> 我是单选钮（不受影响）</label>
+        <label><input type="text" placeholder="文本框（不受影响）" value="测试文本"></label>
+        <label>
+          <select><option>下拉菜单（不受影响）</option></select>
+        </label>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>测试指引：</strong><br>
+      1. 点击扩展图标打开弹窗<br>
+      2. 设置「选择数量」为 3，开启「跳过第一个复选框」<br>
+      3. 点击「勾选」— 应从第二个复选框开始勾选 3 个<br>
+      4. 点击「取消」— 所有复选框应取消勾选<br>
+      5. 点击「反选」— 所有复选框状态反转<br>
+      6. 尝试切换「禁用此网站」后执行操作<br>
+      7. 尝试使用快捷键 Ctrl+Shift+S / U / I
+    </div>
+  </div>
+</body>
+</html>
